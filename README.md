@@ -26,9 +26,8 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
 | Press a button to roll a six-sided die | *click* | random number between 1 and 6 |
-| Press a hold button to save your score and pass the turn | *click* | toggles turn back and forth |
+| Press a hold button and pass the turn | *click* | toggles turn back and forth |
 | If a one is rolled the turn automatically passes | *roll a one* | passes turn |
-| if a 2-6 is rolled then you get an option to roll again | *roll number between 2-6* | option appears to roll again |
 | if 2-6 is rolled score is stored and subsequent rolls above 1 are added | *roll number between 2-6* | adds score to a temporary hold |
 | if a one is rolled then temp score turns to 0 and turn is passed | *roll a 1* | temporary score resets to 0 |
 | if hold is pressed then temp score is added to total score, temp score is reset, and turn is passed. | *press hold* | temp score is added to total score and temp score is reset |

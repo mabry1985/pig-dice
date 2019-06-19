@@ -6,3 +6,7 @@ body {
   padding-top: 10px;
   display: none;
 }
+
+h2#player1{
+  display: none;
+}
