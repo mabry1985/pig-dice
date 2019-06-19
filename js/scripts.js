@@ -13,10 +13,10 @@ PlayerArr.prototype.assignId = function () {
   return this.currentId;
 };
 
-function nextPlayer() {
-
+function addScore (i) {
+  playerArr1.players[i].score += playerArr1.players[i].tempScore;
+  playerArr1.players[i].tempScore = 0;
 }
-
 
 function rollDice(i) {
   var result = parseInt(Math.random() * 6) + 1;
@@ -49,10 +49,12 @@ playerArr1.addPlayer(player2);
 
 $(document).ready(function () {
   $('button#roll').click(function () {
-    rollDice();
+    rollDice(1);
+    console.log(player2);
   });
 
   $('button#hold').click(function () {
-
+    addScore(1);
+    console.log(player2);
   });
 });
