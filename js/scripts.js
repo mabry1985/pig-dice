@@ -22,7 +22,6 @@ function currentPlayer() {
 };
 
 function switchPlayer(i) {
-
   if (i >= game1.players.length - 1) {
     i = 0;
   } else {
