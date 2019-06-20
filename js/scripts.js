@@ -16,7 +16,6 @@ function Player(name) {
 function currentPlayer() {
   for (i = 0; i < game1.players.length; i++) {
     if (game1.players[i].turn === true) {
-      console.log(i);
       return i;
     }
   }
@@ -36,7 +35,7 @@ function switchPlayer(i) {
 
 function rollDice(i) {
   var result = parseInt(Math.random() * 6) + 1;
-  console.log(result);
+  console.log('Dice roll: ' + result);
   if (result === 1) {
     game1.players[i].tempScore = 0;
     game1.players[i].turn = false;
