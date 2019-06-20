@@ -20,15 +20,16 @@ function currentPlayer() {
       return i;
     }
   }
-}
+};
 
 function switchPlayer(i) {
 
-  if (i >= game1.players.length) {
+  if (i >= game1.players.length - 1) {
     i = 0;
-  }
+  } else {
+    ++i;
+  };
 
-  ++i;
   console.log(i);
   return game1.players[i].turn = true;
 };
@@ -54,6 +55,7 @@ var game1 = new Game();
 
 //temporary code, change to functions
 var player1 = new Player('Josh');
+player1.turn = true;
 var player2 = new Player('Gavin');
 
 game1.addPlayer(player1);
@@ -64,8 +66,7 @@ $(document).ready(function () {
     var i = currentPlayer();
     rollDice(i);
     console.log(player1);
-    console.log(player2);
-    console.log(bot1);
+    console.log(player2);;
   });
 
   $('button#hold').click(function () {
@@ -74,7 +75,6 @@ $(document).ready(function () {
     game1.players[i].turn = false;
     switchPlayer(i);
     console.log(player1);
-    console.log(player2);
-    console.log(bot1);
+    console.log(player2);;
   });
 });
