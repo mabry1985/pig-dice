@@ -27,6 +27,7 @@ function switchPlayer(i) {
   } else {
     ++i;
   };
+
   return game1.players[i].turn = true;
 };
 
@@ -40,14 +41,18 @@ function Bot() {
 };
 
 function botAI() {
+  bot = currentPlayer();
   if (bot1.turn === true) {
     for (i = 0; i < bot1.moves.length; i++) {
       if (i === 0 && bot1.turn === true) {
-        rollDice();
+        rollDice(bot);
+        console.log("step 1")
       } else if (i === 1 && bot1.turn === true) {
-        rollDice();
+        rollDice(bot);
+                console.log("step 2")
       } else if (i === 2 && bot1.turn === true) {
-        hold();
+        hold(bot);
+                console.log("step 3")
       };
     };
   };
@@ -59,8 +64,8 @@ function rollDice(i) {
   if (result === 1) {
     game1.players[i].tempScore = 0;
     game1.players[i].turn = false;
-    botAI();
     switchPlayer(i);
+    botAI();
   } else {
     game1.players[i].tempScore += result;
   }
