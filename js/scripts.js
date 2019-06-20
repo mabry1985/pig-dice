@@ -13,7 +13,7 @@ PlayerArr.prototype.assignId = function () {
   return this.currentId;
 };
 
-function addScore (i) {
+function addScore(i) {
   playerArr1.players[i].score += playerArr1.players[i].tempScore;
   playerArr1.players[i].tempScore = 0;
 }
@@ -23,26 +23,46 @@ function rollDice(i) {
   console.log(result);
   if (result === 1) {
     playerArr1.players[i].tempScore = 0;
-    $('h2').toggle();
   } else {
     playerArr1.players[i].tempScore += result;
   }
 };
 
-function Player(name, score, tempScore) {
+function Player(name) {
   this.name = name;
-  this.score = score;
-  this.tempScore = tempScore;
+  this.score = 0;
+  this.tempScore = 0;
+  this.turn = false;
 };
-
-
 
 //front-end
 
 var playerArr1 = new PlayerArr();
 
-var player1 = new Player('Josh', 0, 0);
-var player2 = new Player('Gavin', 0, 0);
+var player1 = new Player('Josh');
+player1.turn = true;
+var player2 = new Player('Gavin');
+turn = player1;
+
+function currentPlayer() {
+  for (i = 0; i < playerArr1.players.length; i++) {
+    if (playerArr1.players[i].turn === true) {
+      return playerArr1.players[i];
+      console.log();
+    }
+  }
+}
+
+function switchPlayer(i) {
+  if (i >= playerArr1.players.length - 1) {
+    i = 0;
+  };
+
+  ++i;
+  turn = playerArr1.players[i];
+  console.log(turn);
+  console.log(i);
+};
 
 playerArr1.addPlayer(player1);
 playerArr1.addPlayer(player2);
