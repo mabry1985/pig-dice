@@ -27,9 +27,30 @@ function switchPlayer(i) {
   } else {
     ++i;
   };
-
-  console.log(i);
   return game1.players[i].turn = true;
+};
+
+function Bot() {
+  this.name = 'bot1',  //randomName(),
+  this.score = 0,
+  this.tempScore = 0,
+  this.turn = false,
+  this.hard = false,
+  this.moves = [1, 2, 3];
+};
+
+function botAI() {
+  if (bot1.turn === true) {
+    for (i = 0; i < bot1.moves.length; i++) {
+      if (i === 0 && bot1.turn === true) {
+        rollDice();
+      } else if (i === 1 && bot1.turn === true) {
+        rollDice();
+      } else if (i === 2 && bot1.turn === true) {
+        hold();
+      };
+    };
+  };
 };
 
 function rollDice(i) {
@@ -38,11 +59,18 @@ function rollDice(i) {
   if (result === 1) {
     game1.players[i].tempScore = 0;
     game1.players[i].turn = false;
+    botAI();
     switchPlayer(i);
   } else {
     game1.players[i].tempScore += result;
   }
 };
+
+function hold(i) {
+  addScore(i);
+  game1.players[i].turn = false;
+  switchPlayer(i);
+}
 
 function addScore(i) {
   game1.players[i].score += game1.players[i].tempScore;
@@ -53,26 +81,28 @@ var game1 = new Game();
 
 //temporary code, change to functions
 var player1 = new Player('Josh');
-player1.turn = true;
 var player2 = new Player('Gavin');
-
+var bot1 = new Bot();
+player1.turn = true;
 game1.addPlayer(player1);
 game1.addPlayer(player2);
+game1.addPlayer(bot1);
 
 $(document).ready(function () {
   $('button#roll').click(function () {
     var i = currentPlayer();
     rollDice(i);
     console.log(player1);
-    console.log(player2);;
+    console.log(player2);
+    console.log(bot1);
   });
 
   $('button#hold').click(function () {
     var i = currentPlayer();
-    addScore(i);
-    game1.players[i].turn = false;
-    switchPlayer(i);
+    hold(i);
+    botAI();
     console.log(player1);
-    console.log(player2);;
+    console.log(player2);
+    console.log(bot1);
   });
 });
