@@ -45,14 +45,23 @@ function botAI() {
   if (bot1.turn === true) {
     for (i = 0; i < bot1.moves.length; i++) {
       if (i === 0 && bot1.turn === true) {
-        rollDice(bot);
-        console.log("step 1")
+        setTimeout(function () {
+          rollDice(bot);
+        }, 1000);
+
+        console.log('step 1');
       } else if (i === 1 && bot1.turn === true) {
-        rollDice(bot);
-                console.log("step 2")
+        setTimeout(function () {
+          rollDice(bot);
+        }, 2000);
+
+        console.log('step 2');
       } else if (i === 2 && bot1.turn === true) {
-        hold(bot);
-                console.log("step 3")
+        setTimeout(function () {
+          hold(bot);
+        }, 3000);
+
+        console.log('step 3');
       };
     };
   };
