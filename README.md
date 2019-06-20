@@ -20,9 +20,6 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 
 ## Specs
 
-
-
-
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
 | Press a button to roll a six-sided die | *click* | random number between 1 and 6 |
